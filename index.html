@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODE</title>
+    <link href="/style.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a onclick="reRender()" id="home">HOME</a>
+            <a onclick="darkMode()" id="mode">DARK MODE</a>
+            <a onclick="redMode()" id="mode">RED MODE</a>
+        </nav>
+        <h1>DARKMODE</h1>
+        <p class="info" id="info"></p>
+    </div>
+
+    <!-- ";" di akhir tidak terlalu penting di js bisa dipakai atau tidak -->
+    <script>
+        let body = document.body;
+        let info = document.getElementById("info");
+        let mode = document.getElementById("mode");
+        let home = document.getElementById("home");
+
+        const darkLimit = 5;
+        let darkCounter = 0;
+        let darkRemainingLeft;
+        
+        function darkMode() {
+            body.classList.toggle("dark"); //fuction untuk switch css
+            
+            if(darkRemainingLeft == 1) {
+                info.textContent = "JATAH FITUR DARKMODE SUDAH HABIS";
+                mode.style.display = "none"; //berfungsi untuk mengubah display, "none" menjadi tidak ada
+                home.textContent = "RESTART";
+                console.log("jatah dark mode anda sudah habis"); //console.log untuk mengetahui respon melalui inspect -> console
+                return; //return artinya function berakhir disini
+            }
+            darkCounter += 1;
+            darkRemainingLeft = darkLimit - darkCounter;
+
+            //render ke info element
+            info.textContent = `Darkmode dipakai ${darkCounter}x, tersisa ${darkRemainingLeft}`;
+        }
+
+        function redMode() {
+            body.classList.toggle("red");
+        }
+
+        function reRender() {
+            location.reload();
+        }
+    </script>
+
+</body>
+</html>

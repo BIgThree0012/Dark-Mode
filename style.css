@@ -1,0 +1,74 @@
+*, html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    color: black;
+}
+
+.dark {
+    background-color: black; 
+    color: white;
+}
+
+.red {
+    background-color: red; 
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+nav {
+    position: fixed; /* artinya posisi tidak akan pindah kemana-mana */
+    bottom: 0; /* artinya posisi akan diletakan di bagian paling bawah*/
+    background-color: black;
+    width: 100%; /* artinya lebar tempat yang diambil dari ujung kir ke unjung kanan */
+    height: 30px;
+}
+
+nav a {
+    color: white;
+    padding: 15px;
+    text-decoration: none; /* menghilangkan underscore yang muncul dari sintax <a></a> */
+    font-weight: 700; /* untuk mengatur ketebalan font */
+}
+
+nav a:hover {
+    background-color: tomato;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out; /* membuat background color lebih smooth saat dipencet */
+
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10%;
+    font-size: 16px;
+    font-weight: 700;
+    animation: jedagJedug 0.5s infinite; /* fungsi "infinite" agar terus-terusan (tidak berhenti) */
+}
+
+/* karena animation 'jedagJedug' tidak terdaftar, maka buat animasi sendiri menggunakan "@keyframes" */
+@keyframes jedagJedug {
+    0% {
+        font-size: 16px;
+    } 
+    50% {
+        font-size: 18px;
+    }
+    100% {
+        font-size: 16px;
+    }
+}
